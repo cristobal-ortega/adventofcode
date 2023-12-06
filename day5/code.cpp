@@ -17,7 +17,7 @@ struct cmpFunction {
 typedef std::map<std::pair<unsigned , unsigned >, unsigned, cmpFunction> almanac;
 typedef std::vector<std::pair<unsigned long long, unsigned long long>> interval_vec;
 
-// Read lines with format dst src size into a dict
+// Read lines with format dst src size into a dict of pairs
 // dict[src,size] = dst
 // Resulting dict is ordered by src
 almanac read_dict(std::string line) {

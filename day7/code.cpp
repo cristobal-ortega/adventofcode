@@ -42,10 +42,11 @@ int get_points(std::map<int, int> num_cards) {
 
     #ifdef SECOND_PART
         // We have jokers
-        if(num_cards[1]) {
-            num_cards[1]--;
+        if(num_cards[1] == 5) return POINTS_FIVE; // improves worst case
+        if(num_cards[1]--) {
             int max_points = 0;
             for(int i = 2; i <= 14; ++i) {
+                if (!num_cards[i]) continue;
                 num_cards[i]++;
                 max_points = std::max(max_points, get_points(num_cards));
                 num_cards[i]--;

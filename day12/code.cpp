@@ -14,25 +14,23 @@ using VVL  = std::vector<VL>;
 using VVVL = std::vector<VVL>;
 
 unsigned long long int solve(std::vector<char> conditions,
-										 int   i,
-							  std::vector<int> groups,
-										  int  j,
-										int    cur_g) {
+                                          int           i,
+                             std::vector< int>     groups,
+                                          int           j,
+                                          int       cur_g) {
 
 	if (i >= conditions.size()) return j == groups.size();
 
 	if (cache[i][j][cur_g] != -1) return cache[i][j][cur_g];
 
 	unsigned long long int res = 0;
-	if ((conditions[i] == '.' || conditions[i] == '?') && cur_g == 0) {
+	if ((conditions[i] == '.' || conditions[i] == '?') && cur_g == 0)
 		res += solve(conditions, i+1, groups, j, 0);
-	}
 
 	if ((conditions[i] == '#' || conditions[i] == '?') && j < groups.size()) {
 		if ((cur_g + 1) == groups[j]) {
-			if (((i+1) == conditions.size() || conditions[i+1] != '#')) {
+			if (((i+1) == conditions.size() || conditions[i+1] != '#'))
 				res +=  solve(conditions, i+2, groups, j+1, 0);
-			}
 		} else {
 			res += solve(conditions, i+1, groups, j, cur_g+1);
 		}

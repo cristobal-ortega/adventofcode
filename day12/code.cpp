@@ -13,11 +13,11 @@ using VL   = std::vector<unsigned long long int>;
 using VVL  = std::vector<VL>;
 using VVVL = std::vector<VVL>;
 
-unsigned long long int solve(std::vector<char> conditions,
-                                          int           i,
-                             std::vector< int>     groups,
-                                          int           j,
-                                          int       cur_g) {
+unsigned long long int solve(std::vector<char> &conditions,
+                                          int            i,
+                             std::vector< int>     &groups,
+                                          int            j,
+                                          int        cur_g) {
 
 	if (i >= conditions.size()) return j == groups.size();
 
